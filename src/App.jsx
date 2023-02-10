@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import NavBar from './components/NavBar'
 import ItemListContainer from './components/ItemListContainer'
+import Api from './components/Api'
 
 
 
@@ -45,7 +46,8 @@ function App() {
     
     <div>
       <NavBar/>
-      <ItemListContainer greeting ="Bienvenidos a react e-commerce"/>      
+      <ItemListContainer greeting ="Bienvenidos a react e-commerce"/>   
+      <Api/>   
       
     </div>
   

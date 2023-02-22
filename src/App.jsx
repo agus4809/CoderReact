@@ -4,53 +4,42 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import NavBar from './components/NavBar'
 import ItemListContainer from './components/ItemListContainer'
+import Inicio from './components/Inicio'
+import Contacto from './components/Contacto'
+import Cart from './components/Cart'
 
 import Item from './components/Item'
 import ItemCount from './components/ItemCount'
 import ItemList from './components/ItemList'
+import PruebaEventos from './components/PruebaEventos'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ItemDetailContainer from './components/ItemDetailContainer'
 
 
 
 function App() {
-  /*
-  let productos = [
-    {id:1, nombre: "Smart Tv", stock: 5, precio: 55000},
-    {id:2, nombre: "Playstation", stock: 5, precio: 55000},
-    {id:3, nombre: "cocina", stock: 5, precio: 55000},
-    {id:4, nombre: "Heladera", stock: 5, precio: 55000}
-  ]
- 
- 
-  const mostrarProductos = () =>{
-    return new Promise((resolve, reject)=>{
-      
-      if (productos.length===0){
-        reject(new Error("no hay productos"));
-      }
-      setTimeout(()=>{
-        resolve(productos)
-      },3000)
-  })
-  }
-
-  async function fetchingProductos(){
-    try{
-      const datosFectch = await mostrarProductos();
-      console.log(datosFectch)
-    }catch(err){
-      console.log(err);
-    }
-  }
-
-  fetchingProductos();
- */
+  
   
   return (
     
     <div>
+      <BrowserRouter>
       <NavBar/>
-      <ItemListContainer greeting ="Bienvenidos a react e-commerce"/>   
-      <ItemList/>
+
+      <Routes>
+        
+          <Route exact path="/discos" element={<ItemListContainer/>} />
+          <Route exact path="/" element={<Inicio/>} />
+          <Route exact path="/contacto" element={<Contacto/>} />
+          <Route exact path="/cart" element={<Cart/>} />
+          <Route exact path='/genero/:genero' element={<ItemListContainer/>}/>
+          <Route exact path='/item/:id' element={<ItemDetailContainer/>}/>
+          <Route exact path='/prueba' element={<PruebaEventos/>}/>
+      </Routes>
+
+      
+      </BrowserRouter>
+      
         
       
     </div>

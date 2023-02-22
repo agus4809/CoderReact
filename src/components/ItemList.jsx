@@ -1,25 +1,16 @@
 import React from 'react'
 import Item from './Item'
+//import './src/ItemList.css';
 
 
-const ItemList = ({discos}) => {
-  return (
-    <>
-    {discos.map((disco)=>(
-      <Item>
-          id={disco.id}
-          genero ={disco.genero}
-          banda = {disco.banda}
-          titulo ={disco.titulo}
-          año de lanzamiento = {disco.año}
-          stock disponible = {disco.stock}
-          portada ={disco.portada}
-          precio ={disco.precio}
-      </Item>
+const ItemList = ({discosList}) => {
   
-    ))}
-    
-    </>
+  return (
+    <div className='ItemList'>
+        {discosList.map((item)=>(
+          <Item item={item} key={item.id}/>
+        ))}
+    </div>
   );
 };
 

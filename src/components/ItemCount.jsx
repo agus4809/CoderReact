@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
-
-const ItemCount = () => {
+import { Card, CardBody, CardFooter,Stack,Heading,Divider,
+    ButtonGroup,Button,Image,Text } from '@chakra-ui/react'
   
-    const [counter, setCounter] =useState(1); //aca deberia ir el stock
+
+const ItemCount = ({discosDetail}) => {
+    
+    const [counter, setCounter] =useState(0); //aca deberia ir el stock
     const [texto, setTexto] = useState("disponible")
   
     const sumar = ()=>{
@@ -32,10 +35,20 @@ const ItemCount = () => {
     
     return (
     <div>
-      <h1>{counter}</h1>
-      <button onClick={sumar}> Sumar </button>
-      <button onClick={restar}> Restar </button>
-      <p>{texto}</p>
+      
+      <h2>Stock de discos: {discosDetail.stock - counter} discos</h2>
+      <ButtonGroup spacing='2'>      
+      <Button variant='solid' colorScheme='blue' onClick={sumar}>
+        Agregar al carrito
+      </Button>
+
+      <Button variant='solid' colorScheme='blue' onClick={restar}>
+        Quitar del carrito
+      </Button>
+    </ButtonGroup>
+
+     
+      {/* <p>{texto}</p> */}
     </div>
   )
 }
